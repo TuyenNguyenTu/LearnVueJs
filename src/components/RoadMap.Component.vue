@@ -1,5 +1,9 @@
 <template>
   <div>
+    <AddModule @clicked-send-data="HandleClickInParent"></AddModule>
+    <br />
+    <AddCourse :parentData="listModule"></AddCourse>
+    <br />
     <ModuleComponent
       v-for="item in listModule"
       v-bind:key="item.id"
@@ -8,11 +12,15 @@
   </div>
 </template>
 <script>
+import AddModule from "./AddModule.Component";
 import ModuleComponent from "./Module.Component";
+import AddCourse from "./AddCourse.Component";
 export default {
   name: "road-map-component",
   components: {
     ModuleComponent,
+    AddModule,
+    AddCourse,
   },
   data: function() {
     return {
@@ -39,7 +47,21 @@ export default {
           name: "SQL Fundamentals",
         },
       ],
+      dataFromChildrenComponent: {
+        id: "",
+        name: "",
+      },
     };
+  },
+  methods: {
+    HandleClickInParent(dataChil1, dataChil2) {
+      this.dataFromChildrenComponent.id = dataChil1;
+      this.dataFromChildrenComponent.name = dataChil2;
+      this.listModule.push({
+        id: this.dataFromChildrenComponent.id,
+        name: this.dataFromChildrenComponent.name,
+      });
+    },
   },
 };
 </script>
