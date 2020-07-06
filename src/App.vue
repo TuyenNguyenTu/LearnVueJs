@@ -1,19 +1,23 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <b-container class="bv-example-row">
+      <img alt="Vue logo" src="./assets/logo.png" />
+      <HelloWorld msg="Welcome to Your Vue.js App" />
+      <RoadMapComponent></RoadMapComponent>
+    </b-container>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
-
+import HelloWorld from "./components/HelloWorld.vue";
+import RoadMapComponent from "./components/RoadMap.Component";
 export default {
-  name: 'App',
+  name: "App",
   components: {
-    HelloWorld
-  }
-}
+    HelloWorld,
+    RoadMapComponent,
+  },
+};
 </script>
 
 <style>
