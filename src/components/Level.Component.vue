@@ -20,30 +20,7 @@ export default {
     },
   },
   data: function() {
-    return {
-      listLevel: [
-        {
-          id: 1,
-          name: "Learn the basic of Entity Framework",
-          desciption: "Document from Microsoft",
-        },
-        {
-          id: 2,
-          name: "Code First + Migrations",
-          desciption: "Document from Microsoft",
-        },
-        {
-          id: 3,
-          name: "Change Tracker API",
-          desciption: "Document from Microsoft",
-        },
-        {
-          id: 4,
-          name: "Lazy Loading Eager Loadingm, Explicit Loading",
-          desciption: "Document from Microsoft",
-        },
-      ],
-    };
+    return {};
   },
 };
 </script>

@@ -3,13 +3,13 @@
     <button @click="showForm()">{{ nameButton }}</button>
     <br />
     <div v-if="isShowFormAdd">
-      <b-form-group id="input-group-1" label="Mã Module" label-for="input-1">
+      <b-form-group id="input-group-1" label="Mã Module:" label-for="input-1">
         <b-form-input
           id="input-1"
           v-model="form.id"
-          type="email"
+          type="text"
           required
-          placeholder="Enter email"
+          placeholder="Nhập mã module"
         ></b-form-input>
       </b-form-group>
 
@@ -18,7 +18,7 @@
           id="input-2"
           v-model="form.name"
           required
-          placeholder="Enter name"
+          placeholder="Tên module"
         ></b-form-input>
       </b-form-group>
 

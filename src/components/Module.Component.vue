@@ -3,7 +3,11 @@
     <b-col style="text-align:center; border:1px solid black">
       <h1>{{ name }}</h1>
       <b-row>
-        <CourseComponent></CourseComponent>
+        <CourseComponent
+          v-for="item in listCourse"
+          v-bind:key="item.id"
+          :title="item.name"
+        ></CourseComponent>
       </b-row>
     </b-col>
   </div>
@@ -15,12 +19,28 @@ export default {
   name: "module-component",
   props: {
     name: String,
+    parentData: String,
   },
   components: {
     CourseComponent,
   },
   data: function() {
-    return {};
+    return {
+      listCourse: [
+        {
+          id: 1,
+          name: "Web",
+        },
+        {
+          id: 2,
+          name: "Desktop",
+        },
+        {
+          id: 3,
+          name: "Mobile",
+        },
+      ],
+    };
   },
 };
 </script>

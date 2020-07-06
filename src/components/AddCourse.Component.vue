@@ -1,12 +1,12 @@
 <template>
   <div>
-    <button @click="showForm">{{ nameButton }}</button>
+    <!-- <button @click="showForm">{{ nameButton }}</button> -->
     <b-form inline v-if="isShowFormAddCourse">
       <label class="mr-sm-2" for="inline-form-custom-select-pref">
         Loại danh mục</label
       >
 
-      <select class="mb-2 mr-sm-2 mb-sm-0">
+      <select class="mb-2 mr-sm-2 mb-sm-0" v-model="dataOption">
         <option disabled value="">Vui lòng chọn các option</option>
         <option
           v-for="item in parentData"
@@ -19,7 +19,7 @@
         v-model="valueInput"
         placeholder="Enter your name"
       ></b-form-input>
-      <b-button variant="primary">Save</b-button>
+      <b-button variant="primary" @click="handleSubmit()">Save</b-button>
     </b-form>
   </div>
 </template>
@@ -31,6 +31,7 @@ export default {
       isShowFormAddCourse: false,
       nameButton: "Show Form Add Course",
       valueInput: "",
+      dataOption: "",
     };
   },
   methods: {
@@ -41,6 +42,9 @@ export default {
       } else if (this.isShowFormAddCourse == false) {
         this.nameButton = "Show Form Add Course";
       }
+    },
+    handleSubmit() {
+      this.$emit("handleToParent", this.valueInput, this.dataOption);
     },
   },
   props: {
